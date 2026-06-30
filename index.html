@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure It — Water Purifier Repair &amp; Service in Bangalore</title>
+<style>
+  :root{
+    --deep:#1b3358;
+    --teal:#2f6690;
+    --aqua:#3aa6c9;
+    --foam:#eef5f9;
+    --ink:#16263b;
+    --body-text:#3d4f5c;
+    --sand:#f7f8fa;
+    --border:#dde3e8;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', Helvetica, Arial, sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:Georgia, 'Times New Roman', serif;
+    margin:0;
+    line-height:1.3;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:1100px;margin:0 auto;padding-left:24px;padding-right:24px;}
+
+  .eyebrow{
+    color:var(--teal);
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:2.5px;
+    font-weight:700;
+    display:block;
+    margin-bottom:12px;
+  }
+  .section-head{max-width:600px;margin:0 0 44px;}
+  .section-head h2{
+    font-size:clamp(24px, 3.2vw, 32px);
+    color:var(--deep);
+  }
+  .section-head p{
+    color:var(--body-text);
+    font-size:15.5px;
+    line-height:1.75;
+    margin-top:14px;
+  }
+  section{padding:72px 0;}
+
+  /* ---------- NAV ---------- */
+  .nav-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--deep);
+    padding:14px 24px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav-brand{display:flex;align-items:center;gap:10px;}
+  .nav-brand .logo-mark{
+    width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, #7fc8de, var(--aqua) 60%, var(--teal));
+  }
+  .nav-brand span{
+    font-family:Georgia,serif;
+    font-size:21px;
+    color:#fff;
+  }
+  .nav-bar ul{display:flex;gap:30px;align-items:center;}
+  .nav-bar li a{
+    color:#dceef5;
+    font-size:14.5px;
+    font-weight:600;
+  }
+  .nav-bar li a:hover{color:#fff;text-decoration:underline;}
+  .nav-cta{
+    background:var(--aqua);
+    color:#fff !important;
+    padding:10px 20px;
+    border-radius:6px;
+    font-weight:700 !important;
+    font-size:14px;
+  }
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:none;
+    width:38px;height:38px;
+    cursor:pointer;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+  }
+  .nav-toggle span{
+    width:22px;height:2px;background:#fff;display:block;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(135deg, var(--deep) 0%, var(--teal) 55%, var(--aqua) 100%);
+    padding:64px 0;
+  }
+  .hero .wrap{
+    display:flex;
+    align-items:center;
+    gap:48px;
+    flex-wrap:wrap;
+  }
+  .hero-copy{flex:1 1 420px;}
+  .hero-eyebrow{
+    color:#bfe6f2;
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:2.5px;
+    font-weight:700;
+    margin-bottom:16px;
+    display:inline-block;
+  }
+  .hero h1{
+    color:#fff;
+    font-size:clamp(30px, 4.5vw, 46px);
+    max-width:560px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:#bfe6f2;
+  }
+  .hero p{
+    color:#eaf4f8;
+    font-size:16.5px;
+    line-height:1.8;
+    max-width:480px;
+    margin-top:18px;
+  }
+  .hero-actions{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:#fff;
+    color:var(--deep);
+    padding:14px 28px;
+    border-radius:6px;
+    font-weight:700;
+    font-size:15px;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--foam);}
+  .btn-ghost{
+    border:2px solid rgba(255,255,255,0.6);
+    color:#fff;
+    padding:12px 26px;
+    border-radius:6px;
+    font-size:15px;
+    font-weight:600;
+    display:inline-block;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.12);}
+
+  .hero-visual{flex:1 1 300px;display:flex;justify-content:center;}
+  .purifier-card{
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:16px;
+    padding:24px;
+    width:100%;
+    max-width:300px;
+  }
+  .purifier-card img{
+    border-radius:10px;
+    width:100%;
+    height:200px;
+    object-fit:cover;
+  }
+  .stat-row{
+    display:flex;
+    margin-top:18px;
+  }
+  .stat-row div{flex:1;text-align:center;}
+  .stat-row div:first-child{text-align:left;}
+  .stat-row div:last-child{text-align:right;}
+  .stat-row b{
+    display:block;
+    font-size:19px;
+    color:#fff;
+  }
+  .stat-row span{
+    display:block;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:#bcdfe4;
+    margin-top:4px;
+    white-space:nowrap;
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    background:#fff;
+    border-bottom:1px solid #e6e6e0;
+    padding:16px 0;
+  }
+  .trust-strip ul{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px 20px;
+  }
+  .trust-strip li{
+    font-size:13px;
+    color:var(--body-text);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .trust-strip li::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--aqua);
+    flex-shrink:0;
+  }
+
+  /* ---------- WHY CHOOSE ---------- */
+  .why-section{background:var(--sand);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:28px;
+  }
+  .why-card .num{
+    font-family:Georgia,serif;
+    font-size:28px;
+    color:var(--aqua);
+    margin-bottom:8px;
+  }
+  .why-card h3{
+    font-size:16.5px;
+    color:var(--deep);
+    margin-bottom:8px;
+  }
+  .why-card p{
+    font-size:14px;
+    color:var(--body-text);
+    line-height:1.65;
+    margin:0;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-section{background:#fff;}
+  .about-inner{
+    display:flex;
+    gap:48px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+  .about-copy{flex:1 1 380px;}
+  .about-copy h2{
+    font-size:clamp(22px, 3vw, 28px);
+    color:var(--deep);
+  }
+  .about-copy p{
+    color:var(--body-text);
+    font-size:15px;
+    line-height:1.8;
+    margin-top:14px;
+  }
+  .about-badges{
+    flex:1 1 300px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .about-badge{
+    background:var(--foam);
+    border:1px solid #d9eff1;
+    border-radius:10px;
+    padding:18px;
+  }
+  .about-badge b{
+    display:block;
+    font-size:15px;
+    color:var(--deep);
+    font-family:Georgia,serif;
+    margin-bottom:5px;
+  }
+  .about-badge span{
+    font-size:12.5px;
+    color:var(--body-text);
+    line-height:1.5;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-section{background:var(--foam);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:24px;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:26px 24px;
+  }
+  .service-icon{
+    width:42px;height:42px;
+    border-radius:8px;
+    background:var(--teal);
+    margin-bottom:16px;
+  }
+  .service-card h3{
+    font-size:17px;
+    color:var(--deep);
+    margin-bottom:8px;
+  }
+  .service-card p{
+    font-size:14px;
+    color:var(--body-text);
+    line-height:1.65;
+    margin:0;
+  }
+
+  /* ---------- PROBLEMS ---------- */
+  .problem-section{background:#fff;}
+  .problem-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:16px;
+  }
+  .problem-card{
+    background:var(--foam);
+    border:1px solid #d9eff1;
+    border-radius:10px;
+    padding:18px 20px;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    font-size:14.5px;
+    color:var(--ink);
+    line-height:1.55;
+  }
+  .problem-card .mark{
+    flex-shrink:0;
+    width:24px;height:24px;
+    border-radius:50%;
+    background:var(--deep);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;
+    font-weight:700;
+  }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-section{background:var(--foam);}
+  .reviews-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:36px;
+  }
+  .rating-summary{display:flex;align-items:center;gap:16px;}
+  .rating-summary .score{
+    font-family:Georgia,serif;
+    font-size:42px;
+    color:var(--deep);
+  }
+  .rating-summary .stars{color:#f5a623;font-size:17px;letter-spacing:1.5px;}
+  .rating-summary .count{font-size:13px;color:var(--body-text);}
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:18px;
+  }
+  .review-card{
+    background:#fff;
+    border:1px solid #d9eff1;
+    border-radius:12px;
+    padding:22px;
+  }
+  .review-card .stars{color:#f5a623;font-size:13px;margin-bottom:10px;}
+  .review-card p{
+    font-size:14px;
+    color:var(--ink);
+    line-height:1.6;
+    margin:0 0 14px;
+  }
+  .review-card .reviewer{display:flex;align-items:center;gap:10px;}
+  .review-card .avatar{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--teal);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12.5px;
+    font-weight:700;
+    font-family:Georgia,serif;
+    flex-shrink:0;
+  }
+  .review-card .reviewer-meta b{display:block;font-size:13px;color:var(--deep);}
+  .review-card .reviewer-meta span{font-size:11.5px;color:#5a6975;}
+
+  /* ---------- CTA ---------- */
+  .cta-band{background:var(--deep);text-align:center;}
+  .cta-band h2{
+    color:#fff;
+    font-size:clamp(22px, 3vw, 28px);
+    max-width:560px;
+    margin:0 auto;
+  }
+  .cta-band p{color:#bcdfe4;margin-top:12px;font-size:15px;}
+  .cta-band .btn-primary{margin-top:22px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#062b37;color:#9bc6cc;padding:46px 0 22px;}
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+  }
+  .footer-col{flex:1 1 200px;}
+  .footer-col h4{color:#fff;font-size:15px;margin-bottom:12px;font-family:Georgia,serif;}
+  .footer-col li{margin-bottom:7px;font-size:13.5px;}
+  .footer-col li a:hover{color:#fff;}
+  .footer-bottom{
+    margin-top:30px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:16px;
+    font-size:12.5px;
+    color:#6c9aa1;
+    text-align:center;
+  }
+
+  /* ---------- FLOATING CALL BUTTON ---------- */
+  .call-fab{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:999;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--aqua);
+    color:#fff;
+    padding:13px 20px 13px 14px;
+    border-radius:30px;
+    font-weight:700;
+    font-size:14px;
+    box-shadow:0 6px 18px rgba(27,51,88,0.3);
+  }
+  .call-fab:hover{background:var(--teal);}
+  .call-fab .ring{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.2);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .call-fab .ring svg{width:16px;height:16px;fill:#fff;}
+
+  /* =====================================================
+     RESPONSIVE — TABLET
+  ===================================================== */
+  @media (max-width:860px){
+    .wrap{padding-left:20px;padding-right:20px;}
+    section{padding:56px 0;}
+    .about-inner{gap:34px;}
+  }
+
+  /* =====================================================
+     RESPONSIVE — MOBILE
+  ===================================================== */
+  @media (max-width:720px){
+    .nav-bar{padding:12px 18px;}
+    .nav-bar ul{
+      display:none;
+      position:absolute;
+      top:100%;left:0;right:0;
+      background:var(--deep);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      padding:6px 18px 16px;
+      box-shadow:0 8px 16px rgba(0,0,0,0.2);
+    }
+    .nav-bar ul.open{display:flex;}
+    .nav-bar ul li{width:100%;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .nav-bar .nav-cta{display:none;}
+    .nav-bar ul li:last-child{border-bottom:none;}
+    .nav-toggle{display:flex;}
+
+    .hero{padding:48px 0;}
+    .hero .wrap{flex-direction:column;align-items:stretch;text-align:left;}
+    .hero h1{max-width:100%;}
+    .hero p{max-width:100%;}
+    .hero-actions a{flex:1 1 auto;text-align:center;}
+    .hero-visual{order:-1;margin-bottom:8px;}
+    .purifier-card{max-width:100%;}
+
+    .trust-strip ul{flex-direction:column;gap:10px;}
+
+    .section-head{max-width:100%;}
+    .why-grid,.service-grid,.problem-grid,.reviews-grid{grid-template-columns:1fr;}
+    .about-inner{flex-direction:column;}
+    .about-badges{grid-template-columns:1fr 1fr;}
+
+    .reviews-head{flex-direction:column;align-items:flex-start;}
+
+    .footer-inner{flex-direction:column;gap:26px;}
+
+    .call-fab span.label{display:none;}
+    .call-fab{padding:13px;border-radius:50%;}
+  }
+
+  @media (max-width:420px){
+    .about-badges{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body id="top">
+
+  <div class="nav-bar">
+    <div class="nav-brand">
+      <div class="logo-mark"></div>
+      <span>Pure It</span>
+    </div>
+    <ul id="navList">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#why-choose">Why Us</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="tel:+918123327803" class="nav-cta">Call Now</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Bangalore · All Brands · Same-Day Service</span>
+        <h1>Fast, reliable repair for every water purifier brand.</h1>
+        <p>Leaking RO unit, slow flow, or a purifier that won't switch on? Our trained technicians visit your home, diagnose the issue, and fix it — usually the same day.</p>
+        <div class="hero-actions">
+          <a href="tel:+918123327803" class="btn-primary">Schedule a Visit</a>
+          <a href="#services" class="btn-ghost">View Services</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="purifier-card">
+          <img src="banner.png" alt="Water purifiers serviced by Pure It">
+          <div class="stat-row">
+            <div><b>15k+</b><span>Homes Served</span></div>
+            <div><b>4.9★</b><span>Avg. Rating</span></div>
+            <div><b>24h</b><span>Response</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="wrap">
+      <ul>
+        <li>All Brands Supported</li>
+        <li>Same-Day Booking</li>
+        <li>Genuine Spare Parts</li>
+        <li>Verified Technicians</li>
+        <li>30-Day Service Warranty</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE -->
+  <section class="why-section" id="why-choose">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why Choose Pure It</span>
+        <h2>Four reasons households across Bangalore call us back.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="num">01</div>
+          <h3>Verified Technicians</h3>
+          <p>Every technician is trained and background-checked, and knows every major purifier model inside out.</p>
+        </div>
+        <div class="why-card">
+          <div class="num">02</div>
+          <h3>Same-Day Service</h3>
+          <p>Book in the morning, get it fixed by evening. Most repairs are completed in a single visit.</p>
+        </div>
+        <div class="why-card">
+          <div class="num">03</div>
+          <h3>Upfront Pricing</h3>
+          <p>You'll know the cost before any work starts — no surprise charges added to your final bill.</p>
+        </div>
+        <div class="why-card">
+          <div class="num">04</div>
+          <h3>30-Day Warranty</h3>
+          <p>Every repair is backed by a 30-day service warranty, so the fix is built to last.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="wrap about-inner">
+      <div class="about-copy">
+        <span class="eyebrow">About Pure It</span>
+        <h2>Bangalore's go-to team for purifier installation and repair.</h2>
+        <p>Clean water shouldn't depend on a purifier you can't rely on. Pure It installs, repairs, and maintains RO and UV water purifiers of every brand, right at your doorstep, anywhere in Bangalore.</p>
+        <p>Every job comes with genuine spare parts and a 30-day service warranty, so you're covered well after our technician leaves.</p>
+      </div>
+      <div class="about-badges">
+        <div class="about-badge"><b>100%</b><span>Genuine spare parts</span></div>
+        <div class="about-badge"><b>30 Days</b><span>Service warranty</span></div>
+        <div class="about-badge"><b>All Brands</b><span>RO, UV &amp; UF systems</span></div>
+        <div class="about-badge"><b>Upfront</b><span>Transparent pricing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Do</span>
+        <h2>Everything your purifier needs, in one visit.</h2>
+        <p>From a first-time installation to a decade-old unit that's slowed down, our technicians handle the full lifecycle of your purifier.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"></div>
+          <h3>Repair &amp; Diagnosis</h3>
+          <p>We trace leaks, power issues, and low pressure to their root cause and fix it on the same visit, in most cases.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"></div>
+          <h3>Filter Replacement</h3>
+          <p>Genuine RO, UV, and UF cartridges fitted on schedule, so water quality never quietly slips.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"></div>
+          <h3>Annual Maintenance</h3>
+          <p>A scheduled plan that catches wear before it turns into a breakdown — one plan, every brand covered.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"></div>
+          <h3>New Installation</h3>
+          <p>Wall-mounted or under-sink, we size and fit the right system for your water source and household.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS -->
+  <section class="problem-section" id="problems">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Common Problems We Fix</span>
+        <h2>If your purifier is acting up, we've likely seen it before.</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card"><span class="mark">1</span>Water heater not heating properly</div>
+        <div class="problem-card"><span class="mark">2</span>Geyser leakage, power failure, or tripping</div>
+        <div class="problem-card"><span class="mark">3</span>RO not purifying water effectively</div>
+        <div class="problem-card"><span class="mark">4</span>Low flow or slow dispensing from the tap</div>
+        <div class="problem-card"><span class="mark">5</span>Error lights, warning beeps, or unusual noise</div>
+        <div class="problem-card"><span class="mark">6</span>Filter or membrane overdue for replacement</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div>
+          <span class="eyebrow">Customer Reviews</span>
+          <h2 style="font-size:clamp(22px,3vw,28px);color:var(--deep);">What Bangalore households say about us</h2>
+        </div>
+        <div class="rating-summary">
+          <div class="score">4.9</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="count">9 Google reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Good service, reasonably priced, experienced technicians — satisfied with the service.</p>
+          <div class="reviewer"><div class="avatar">T</div><div class="reviewer-meta"><b>Thaju Mon K K</b><span>11 months ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Great service provided, thank you.</p>
+          <div class="reviewer"><div class="avatar">S</div><div class="reviewer-meta"><b>Sinas TR</b><span>Local Guide · 8 months ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Excellent service.</p>
+          <div class="reviewer"><div class="avatar">G</div><div class="reviewer-meta"><b>Glen Glaxon</b><span>8 months ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Good service.</p>
+          <div class="reviewer"><div class="avatar">I</div><div class="reviewer-meta"><b>Ishaq Thangal</b><span>6 months ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>We appreciate you for keeping our RO healthy, thank you Pure It.</p>
+          <div class="reviewer"><div class="avatar">S</div><div class="reviewer-meta"><b>Sherbin G</b><span>a year ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Good quality and fast service.</p>
+          <div class="reviewer"><div class="avatar">A</div><div class="reviewer-meta"><b>Abubakkar Siddiq</b><span>Local Guide · 11 months ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Fast service, good technician.</p>
+          <div class="reviewer"><div class="avatar">A</div><div class="reviewer-meta"><b>Arif Pasha</b><span>6 months ago</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Satisfied with the service, thank you Pure It.</p>
+          <div class="reviewer"><div class="avatar">J</div><div class="reviewer-meta"><b>Jince Ta</b><span>a month ago</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Clean water shouldn't be a maybe. Let's get it sorted.</h2>
+      <p>Book a technician today and have your purifier running like new by evening.</p>
+      <a href="tel:+918123327803" class="btn-primary">Book a Service Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <h4>Pure It</h4>
+          <p style="font-size:13px;line-height:1.7;max-width:220px;">Water purifier sales, repair, and maintenance for every brand, across Bangalore.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#why-choose">Why Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>Bangalore, Karnataka</li>
+            <li><a href="tel:+918123327803">+91 81233 27803</a></li>
+            <li>support@pureit-service.in</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Pure It Water Purifier Services. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <a href="tel:+918123327803" class="call-fab" aria-label="Call Pure It now">
+    <span class="ring">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+    </span>
+    <span class="label">Call 81233 27803</span>
+  </a>
+
+  <script>
+    var toggle = document.getElementById('navToggle');
+    var navList = document.getElementById('navList');
+    toggle.addEventListener('click', function(){
+      var isOpen = navList.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    navList.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        navList.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      });
+    });
+  </script>
+</body>
+</html>
